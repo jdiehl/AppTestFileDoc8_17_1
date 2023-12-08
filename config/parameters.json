@@ -1,0 +1,26 @@
+{
+  "url" : "https://apptestfiledoc8171-sandbox.mxapps.io",
+  "identifier" : "io.mxapps.apptestfiledoc8171",
+  "version" : "0.0.3",
+  "name" : "AppTestFileDoc",
+  "description" : null,
+  "iosEnabled" : false,
+  "androidEnabled" : true,
+  "requirePin" : false,
+  "enableOffline" : false,
+  "permissions" : {
+    "calendar" : false,
+    "camera" : false,
+    "photoLibrary" : false,
+    "contacts" : false,
+    "microphone" : false,
+    "geoLocation" : false,
+    "push" : false
+  },
+  "theme" : {
+    "background" : "#0595DB",
+    "text" : "#ffffff",
+    "button" : "#76CA02",
+    "buttonCaption" : "#ffffff"
+  }
+}

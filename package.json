@@ -1,0 +1,68 @@
+{
+  "name": "@mendix/mendix-hybrid-app-template",
+  "version": "7.0.0",
+  "description": "Mendix hybrid app template",
+  "scripts": {
+    "init": "node init",
+    "install": "npm run init",
+    "package": "webpack",
+    "cordova": "cd build && cordova",
+    "plugin": "npm run cordova -- plugin",
+    "build": "npm run cordova -- build",
+    "build:ios": "npm run cordova -- build ios",
+    "start": "npm run cordova -- run",
+    "package:x86": "npm run package -- --env.x86",
+    "package:x86_64": "npm run package -- --env.x86_64",
+    "package:arm": "npm run package -- --env.arm",
+    "package:arm64": "npm run package -- --env.arm64",
+    "package:watch": "npm run package -- --watch",
+    "platform:all": "run-p platform:android platform:ios",
+    "platform:android": "cd build && cordova platform add android@12",
+    "postplatform:android": "node ./scripts/fixAndroidManifest.js && node ./scripts/fixBarcodeScanner.js && node ./scripts/fixFileProvider.js",
+    "platform:ios": "cd build && cordova platform add ios",
+    "prepare:all": "npm run prepare:android && npm run prepare:ios",
+    "prepare:android": "run-s clean:platform:android platform:android",
+    "prepare:ios": "run-s clean:platform:ios platform:ios",
+    "build:release": "npm run build -- --release",
+    "start:emulator": "npm run start -- --emulator",
+    "start:device": "npm run start -- --device",
+    "clean:platform:android": "rimraf build/platforms/android",
+    "clean:platform:ios": "rimraf build/platforms/ios"
+  },
+  "main": "src/www/scripts/entry.js",
+  "directories": {
+    "lib": "src"
+  },
+  "files": [
+    "/config/**/.gitkeep",
+    "/src/www/scripts/entry.js",
+    "/src/www/styles/**/*.css[.mustache]",
+    "/src/**/.gitkeep",
+    "/init.js",
+    "/*.js",
+    "/*.md",
+    "scripts/*.js"
+  ],
+  "devDependencies": {
+    "@mendix/mendix-hybrid-app-base": "^7.0.0",
+    "cordova": "^12.0.0",
+    "global": "^4.4.0",
+    "mustache-loader": "^1.4.3",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^3.0.2",
+    "shelljs": "^0.8.5",
+    "webpack": "^5.80.0",
+    "webpack-cli": "^4.9.1",
+    "webpack-merge": "^5.7.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:mendix/hybrid-app-template.git"
+  },
+  "license": "Apache-2.0",
+  "author": {
+    "name": "Mendix",
+    "email": "support@mendix.com",
+    "url": "https://support.mendix.com"
+  }
+}
